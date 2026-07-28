@@ -79,3 +79,19 @@ color:white;
 
 
 }
+
+.sidebar nav a.active{
+
+
+background:
+linear-gradient(
+90deg,
+#2563eb,
+#9333ea
+);
+
+
+color:white;
+
+
+}

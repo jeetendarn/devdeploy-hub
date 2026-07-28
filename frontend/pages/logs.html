@@ -11,6 +11,8 @@
 <link rel="stylesheet" href="../assets/css/dashboard.css">
 <link rel="stylesheet" href="../assets/css/sidebar.css">
 
+<link rel="stylesheet" href="../assets/css/responsive.css">
+
 </head>
 
 
@@ -32,7 +34,9 @@
 <a href="dashboard.html">Dashboard</a>
 <a href="projects.html">Projects</a>
 <a href="deployments.html">Deployments</a>
-<a href="logs.html">Logs</a>
+<a class="active" href="logs.html">
+Logs
+</a>
 <a href="health.html">Health</a>
 
 
@@ -65,21 +69,35 @@ Admin
 <section class="panel">
 
 
-<pre>
+<div class="log-box">
 
+
+<p class="success">
 [INFO] API Server Started
+</p>
 
+
+<p class="success">
 [INFO] Database Connected
+</p>
 
+
+<p class="success">
 [INFO] Redis Connection Successful
+</p>
 
+
+<p class="warning">
 [WARNING] High Memory Usage
+</p>
 
+
+<p class="success">
 [INFO] Deployment Completed
+</p>
 
 
-</pre>
-
+</div>
 
 </section>
 
