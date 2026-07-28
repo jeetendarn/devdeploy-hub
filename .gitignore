@@ -1,0 +1,23 @@
+# Node
+node_modules/
+
+# Environment
+.env
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Go
+backend/bin/
+backend/vendor/
+
+# Coverage
+coverage.out
