@@ -22,20 +22,15 @@ func main() {
 		log.Println("Database Connected")
 	}
 
-	router := gin.Default()
+router := gin.Default()
 
-	router.Use(cors.Default())
+router.Use(cors.Default())
 
-	router.GET("/api/health", func(c *gin.Context) {
+routes.Register(router)
 
-		c.JSON(http.StatusOK, gin.H{
-			"service":     cfg.AppName,
-			"status":      "healthy",
-			"environment": cfg.AppEnv,
-			"version":     "1.0.0",
-		})
+log.Println("Server running on :" + cfg.AppPort)
 
-	})
+router.Run(":" + cfg.AppPort)
 
 	log.Println("Server running on :" + cfg.AppPort)
 
