@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"log"
 
-"github.com/jeetendar/devdeploy-hub/internal/config"
 	"github.com/jackc/pgx/v5/pgxpool"
+	"github.com/jeetendar/devdeploy-hub/internal/config"
 )
 
 var DB *pgxpool.Pool

@@ -1,10 +1,10 @@
 package repository
-
+import "fmt"
 import (
 	"context"
 
-	"devdeploy-hub/internal/database"
-	"devdeploy-hub/internal/models"
+	"github.com/jeetendar/devdeploy-hub/internal/database"
+	"github.com/jeetendar/devdeploy-hub/internal/models"
 
 	"github.com/google/uuid"
 )
@@ -17,6 +17,9 @@ func GetProjects() ([]models.Project, error) {
 		 FROM projects
 		 ORDER BY created_at DESC`,
 	)
+	if database.DB == nil {
+    return nil, fmt.Errorf("database connection is not available")
+}
 
 	if err != nil {
 
@@ -51,7 +54,9 @@ func GetProjects() ([]models.Project, error) {
 }
 
 func CreateProject(project models.Project) error {
-
+if database.DB == nil {
+    return fmt.Errorf("database connection is not available")
+}
 	id := uuid.New()
 
 	_, err := database.DB.Exec(

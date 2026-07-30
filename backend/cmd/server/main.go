@@ -2,15 +2,16 @@ package main
 
 import (
 	"log"
-	"net/http"
-
-
-    "github.com/jeetendar/devdeploy-hub/internal/config"
-    "github.com/jeetendar/devdeploy-hub/internal/database"
 
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
+
+	"github.com/jeetendar/devdeploy-hub/internal/config"
+	"github.com/jeetendar/devdeploy-hub/internal/database"
+
+	"github.com/jeetendar/devdeploy-hub/internal/routes"
 )
+
 func main() {
 
 	cfg := config.Load()
@@ -22,15 +23,11 @@ func main() {
 		log.Println("Database Connected")
 	}
 
-router := gin.Default()
+	router := gin.Default()
 
-router.Use(cors.Default())
+	router.Use(cors.Default())
 
-routes.Register(router)
-
-log.Println("Server running on :" + cfg.AppPort)
-
-router.Run(":" + cfg.AppPort)
+	routes.Register(router)
 
 	log.Println("Server running on :" + cfg.AppPort)
 

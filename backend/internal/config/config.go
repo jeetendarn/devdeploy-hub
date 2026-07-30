@@ -8,9 +8,9 @@ import (
 )
 
 type Config struct {
-	AppName    string
-	AppEnv     string
-	AppPort    string
+	AppName string
+	AppEnv  string
+	AppPort string
 
 	DBHost     string
 	DBPort     string
@@ -19,8 +19,8 @@ type Config struct {
 	DBName     string
 	DBSSLMode  string
 
-	RedisHost  string
-	RedisPort  string
+	RedisHost string
+	RedisPort string
 }
 
 func Load() *Config {
@@ -36,15 +36,15 @@ func Load() *Config {
 	return &Config{
 
 		AppName: os.Getenv("APP_NAME"),
-		AppEnv: os.Getenv("APP_ENV"),
+		AppEnv:  os.Getenv("APP_ENV"),
 		AppPort: os.Getenv("APP_PORT"),
 
-		DBHost: os.Getenv("DB_HOST"),
-		DBPort: os.Getenv("DB_PORT"),
-		DBUser: os.Getenv("DB_USER"),
+		DBHost:     os.Getenv("DB_HOST"),
+		DBPort:     os.Getenv("DB_PORT"),
+		DBUser:     os.Getenv("DB_USER"),
 		DBPassword: os.Getenv("DB_PASSWORD"),
-		DBName: os.Getenv("DB_NAME"),
-		DBSSLMode: os.Getenv("DB_SSLMODE"),
+		DBName:     os.Getenv("DB_NAME"),
+		DBSSLMode:  os.Getenv("DB_SSLMODE"),
 
 		RedisHost: os.Getenv("REDIS_HOST"),
 		RedisPort: os.Getenv("REDIS_PORT"),
