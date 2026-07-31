@@ -1,8 +1,8 @@
 .layout{
 
-display:flex;
+    display:flex;
 
-min-height:100vh;
+    min-height:100vh;
 
 }
 
@@ -10,20 +10,18 @@ min-height:100vh;
 
 .sidebar{
 
+    width:264px;
+    flex-shrink:0;
 
-width:260px;
+    background:rgba(8,12,20,0.65);
+    backdrop-filter:blur(20px);
 
+    padding:32px 22px;
 
-background:
-rgba(15,23,42,0.95);
+    border-right:1px solid var(--border);
 
-
-padding:30px;
-
-
-border-right:
-1px solid rgba(255,255,255,0.1);
-
+    display:flex;
+    flex-direction:column;
 
 }
 
@@ -31,13 +29,26 @@ border-right:
 
 .logo{
 
+    font-family:'JetBrains Mono',monospace;
+    font-size:16px;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    color:var(--text);
 
-font-size:22px;
+    margin-bottom:32px;
+    padding-bottom:20px;
 
-font-weight:bold;
+    border-bottom:1px solid var(--border);
 
-margin-bottom:40px;
+}
 
+
+
+.sidebar nav{
+
+    display:flex;
+    flex-direction:column;
+    gap:4px;
 
 }
 
@@ -45,53 +56,62 @@ margin-bottom:40px;
 
 .sidebar nav a{
 
+    position:relative;
 
-display:block;
+    display:flex;
+    align-items:center;
+    gap:10px;
 
+    padding:12px 14px;
 
-padding:15px;
+    color:var(--muted);
 
+    text-decoration:none;
 
-margin:10px 0;
+    border-radius:10px;
 
+    font-size:14px;
+    font-weight:500;
 
-color:#cbd5e1;
+    transition:background .2s ease, color .2s ease, box-shadow .2s ease;
 
+}
 
-text-decoration:none;
-
-
-border-radius:10px;
-
-
+.sidebar nav a::before{
+    content:'';
+    width:6px;
+    height:6px;
+    flex-shrink:0;
+    border-radius:50%;
+    background:var(--muted-2);
+    transition:background .2s ease, box-shadow .2s ease;
 }
 
 
 
 .sidebar nav a:hover{
 
+    background:rgba(255,255,255,0.045);
 
-background:
-rgba(255,255,255,0.1);
+    color:var(--text);
 
+}
 
-color:white;
-
-
+.sidebar nav a:hover::before{
+    background:var(--muted);
 }
 
 .sidebar nav a.active{
 
+    background:linear-gradient(90deg, rgba(52,211,153,0.14), rgba(14,165,160,0.04));
 
-background:
-linear-gradient(
-90deg,
-#2563eb,
-#9333ea
-);
+    color:var(--text);
 
+    box-shadow:inset 0 0 0 1px rgba(52,211,153,0.25);
 
-color:white;
+}
 
-
+.sidebar nav a.active::before{
+    background:var(--green);
+    box-shadow:0 0 0 3px rgba(52,211,153,0.18);
 }

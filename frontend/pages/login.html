@@ -1,11 +1,15 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 
 <head>
 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Login | DevDeploy Hub</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="../assets/css/login.css">
 
 </head>
@@ -16,30 +20,41 @@
 
 <div class="login-card">
 
+    <div class="term-bar">
+        <span class="term-dot red"></span>
+        <span class="term-dot amber"></span>
+        <span class="term-dot green"></span>
+        <span class="term-title">~/devdeploy-hub/login</span>
+    </div>
 
-<h1>
-DevDeploy Hub
-</h1>
+    <div class="login-body">
+
+        <div class="eyebrow"><span class="dot"></span> secure session</div>
+
+        <h1>
+        DevDeploy Hub
+        </h1>
 
 
-<p>
-Sign in to continue
-</p>
+        <p>
+        Sign in to continue
+        </p>
 
 
-<input 
-type="email"
-placeholder="Email">
+        <input
+        type="email"
+        placeholder="Email">
 
 
-<input 
-type="password"
-placeholder="Password">
+        <input
+        type="password"
+        placeholder="Password">
 
-<button onclick="login()">
-Login
-</button>
+        <button onclick="login()">
+        Login
+        </button>
 
+    </div>
 
 <script src="../assets/js/login.js"></script>
 

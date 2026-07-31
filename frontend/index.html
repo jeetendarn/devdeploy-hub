@@ -8,6 +8,8 @@
 
 <title>DevDeploy Hub</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="assets/css/style.css">
 
 </head>
@@ -18,6 +20,14 @@
 <div class="container">
 
     <div class="hero">
+
+        <div class="status-strip">
+            <span class="dot"></span> build passed
+            <span class="divider">→</span>
+            <span class="dot"></span> tests passed
+            <span class="divider">→</span>
+            <span class="dot amber"></span> ready to deploy
+        </div>
 
         <h1>
             DevDeploy Hub
@@ -33,6 +43,8 @@
                 Get Started
             </button>
         </a>
+
+        <div class="meta">$ devdeploy --init<span class="cursor">_</span></div>
 
     </div>
 

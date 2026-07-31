@@ -40,13 +40,17 @@ A lightweight DevOps portfolio project demonstrating modern backend development 
 - Modern responsive frontend
 
 ---
+cd frontend
 
+live-server
+---
 ## Run Backend
 
 ```bash
 cd backend
 
 go run cmd/server/main.go
+
 ```
 
 Server:
@@ -91,3 +95,4 @@ docs/
 - Backend configuration
 - PostgreSQL integration
 - Project API
+

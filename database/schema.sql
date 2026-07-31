@@ -39,4 +39,4 @@ CREATE TABLE deployments (
     status VARCHAR(50),
 
     deployed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-
+)
