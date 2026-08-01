@@ -11,6 +11,20 @@ import (
 
 func GetProjects() ([]models.Project, error) {
 
+	func GetProjects() ([]models.Project, error) {
+
+    if database.DB == nil {
+        return []models.Project{}, nil
+    }
+
+    rows, err := database.DB.Query(
+        context.Background(),
+        "SELECT id, name, description FROM projects",
+    )
+
+    ...
+}
+
 	rows, err := database.DB.Query(
 		context.Background(),
 		`SELECT id,name,description,environment,status,created_at
