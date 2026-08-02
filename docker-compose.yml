@@ -1,0 +1,96 @@
+version: "3.9"
+
+services:
+
+  postgres:
+    image: postgres:17
+    container_name: devdeploy-postgres
+
+    restart: unless-stopped
+
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: devdeploy_hub
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./database/schema.sql:/docker-entrypoint-initdb.d/schema.sql
+
+    networks:
+      - devdeploy-network
+
+  redis:
+    image: redis:7-alpine
+
+    container_name: devdeploy-redis
+
+    restart: unless-stopped
+
+    ports:
+      - "6379:6379"
+
+    networks:
+      - devdeploy-network
+
+  backend:
+
+    build:
+      context: .
+      dockerfile: docker/backend/Dockerfile
+
+    image: devdeploy-backend
+
+    container_name: devdeploy-backend
+
+    depends_on:
+      - postgres
+      - redis
+
+    restart: unless-stopped
+
+    environment:
+
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      DB_NAME: devdeploy_hub
+
+    ports:
+      - "8080:8080"
+
+    networks:
+      - devdeploy-network
+
+  frontend:
+
+    build:
+      context: .
+      dockerfile: docker/frontend/Dockerfile
+
+    image: devdeploy-frontend
+
+    container_name: devdeploy-frontend
+
+    depends_on:
+      - backend
+
+    ports:
+      - "3000:80"
+
+    restart: unless-stopped
+
+    networks:
+      - devdeploy-network
+
+volumes:
+
+  postgres_data:
+
+networks:
+
+  devdeploy-network:

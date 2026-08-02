@@ -157,3 +157,57 @@ docker run --rm -p 3000:80 devdeploy-frontend
 Open:
 
 - http://localhost:3000
+
+
+## Docker Compose
+
+### Services
+
+- Frontend (Nginx)
+- Backend (Go)
+- PostgreSQL
+- Redis
+
+### Build
+
+```bash
+docker compose build
+```
+
+### Start
+
+```bash
+docker compose up -d
+```
+
+### Stop
+
+```bash
+docker compose down
+```
+
+### View Containers
+
+```bash
+docker ps
+```
+
+### View Logs
+
+```bash
+docker logs devdeploy-backend
+docker logs devdeploy-postgres
+docker logs devdeploy-frontend
+docker logs devdeploy-redis
+```
+
+### Project URLs
+
+Frontend:
+http://localhost:3000
+
+Backend:
+http://localhost:8080/api/health
+
+Projects API:
+http://localhost:8080/api/projects
