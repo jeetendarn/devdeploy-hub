@@ -96,3 +96,34 @@ docs/
 - PostgreSQL integration
 - Project API
 
+## Docker - Backend
+
+### Features
+
+- Multi-stage Docker build
+- Alpine Linux runtime
+- Small production image
+- Go binary containerization
+- Port 8080 exposed
+
+### Build Image
+
+```bash
+docker build -t devdeploy-backend -f docker/backend/Dockerfile .
+```
+
+### Run Container
+
+```bash
+docker run --rm -p 8080:8080 devdeploy-backend
+```
+
+### Useful Commands
+
+```bash
+docker images
+docker ps
+docker logs <container_id>
+docker exec -it <container_id> sh
+docker stop <container_id>
+```
