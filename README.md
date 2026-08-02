@@ -127,3 +127,33 @@ docker logs <container_id>
 docker exec -it <container_id> sh
 docker stop <container_id>
 ```
+
+## Docker - Frontend
+
+### Base Image
+
+- Nginx Alpine
+
+### Features
+
+- Static file hosting
+- Custom Nginx configuration
+- Lightweight production image
+
+### Build
+
+```bash
+docker build -t devdeploy-frontend -f docker/frontend/Dockerfile .
+```
+
+### Run
+
+```bash
+docker run --rm -p 3000:80 devdeploy-frontend
+```
+
+### Test
+
+Open:
+
+- http://localhost:3000
