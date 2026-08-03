@@ -1,10 +1,11 @@
-# ===============================
-# Stage 1 - Build
-# ===============================
-
 FROM golang:1.25.1-alpine AS builder
 
 WORKDIR /app
+
+RUN apk add --no-cache git ca-certificates
+
+ENV GOPROXY=https://proxy.golang.org,direct
+ENV GOSUMDB=sum.golang.org
 
 COPY backend/go.mod backend/go.sum ./
 
@@ -13,10 +14,6 @@ RUN go mod download
 COPY backend/ .
 
 RUN CGO_ENABLED=0 GOOS=linux go build -o devdeploy-hub ./cmd/server
-
-# ===============================
-# Stage 2 - Runtime
-# ===============================
 
 FROM alpine:3.22
 
