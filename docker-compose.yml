@@ -36,35 +36,41 @@ services:
     networks:
       - devdeploy-network
 
+
   backend:
 
-    build:
-      context: .
-      dockerfile: docker/backend/Dockerfile
+  build:
+    context: .
+    dockerfile: docker/backend/Dockerfile
 
-    image: devdeploy-backend
+  container_name: devdeploy-backend
 
-    container_name: devdeploy-backend
+  restart: unless-stopped
 
-    depends_on:
-      - postgres
-      - redis
+  depends_on:
+    postgres:
+      condition: service_started
+    redis:
+      condition: service_started
 
-    restart: unless-stopped
+  environment:
+    DB_HOST: postgres
+    DB_PORT: 5432
+    DB_USER: postgres
+    DB_PASSWORD: postgres
+    DB_NAME: devdeploy_hub
 
-    environment:
+  ports:
+    - "8080:8080"
 
-      DB_HOST: postgres
-      DB_PORT: 5432
-      DB_USER: postgres
-      DB_PASSWORD: postgres
-      DB_NAME: devdeploy_hub
+  healthcheck:
+    test: ["CMD","wget","--spider","-q","http://localhost:8080/api/health"]
+    interval: 20s
+    timeout: 5s
+    retries: 5
 
-    ports:
-      - "8080:8080"
-
-    networks:
-      - devdeploy-network
+  networks:
+    - devdeploy-network
 
   frontend:
 
