@@ -325,3 +325,38 @@ kubectl describe rs nginx-rs
 
 kubectl delete rs nginx-rs
 ```
+
+## Kubernetes - Deployments
+
+### Concepts
+
+- Deployment
+- ReplicaSet
+- Rolling Updates
+- Rollback
+- Scaling
+- Revision History
+
+### Commands
+
+```bash
+kubectl apply -f kubernetes/learning/nginx-deployment.yaml
+
+kubectl get deployments
+
+kubectl get rs
+
+kubectl get pods
+
+kubectl describe deployment nginx-deployment
+
+kubectl scale deployment nginx-deployment --replicas=5
+
+kubectl scale deployment nginx-deployment --replicas=2
+
+kubectl rollout status deployment/nginx-deployment
+
+kubectl rollout history deployment/nginx-deployment
+
+kubectl delete deployment nginx-deployment
+```
