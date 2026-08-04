@@ -240,3 +240,29 @@ docker compose up -d
 
 docker ps
 ```
+
+## Kubernetes - Phase 1
+
+### Topics Covered
+
+- Minikube
+- kubectl
+- Cluster
+- Nodes
+- Namespaces
+- Control Plane
+- API Server
+
+### Commands
+
+```bash
+minikube version
+kubectl version --client
+minikube start
+minikube status
+kubectl cluster-info
+kubectl get nodes
+kubectl get namespaces
+kubectl get pods -A
+kubectl get services -A
+```
