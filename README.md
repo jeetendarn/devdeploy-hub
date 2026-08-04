@@ -212,3 +212,31 @@ http://localhost:8080/api/health
 Projects API:
 
 http://localhost:8080/api/projects
+
+## Production Docker Concepts
+
+### Covered
+
+- Named Volumes
+- Docker Networks
+- Internal DNS
+- Persistent Storage
+- Health Checks
+- Restart Policies
+
+### Useful Commands
+
+```bash
+docker volume ls
+docker volume inspect <volume>
+
+docker network ls
+docker network inspect <network>
+
+docker compose down
+docker compose down -v
+
+docker compose up -d
+
+docker ps
+```
