@@ -296,3 +296,32 @@ kubectl port-forward pod/nginx-demo 8081:80
 
 kubectl delete pod nginx-demo
 ```
+
+## Kubernetes - ReplicaSet
+
+### Concepts
+
+- ReplicaSet
+- Self Healing
+- Scaling
+- Pod Template
+- Match Labels
+- Selectors
+
+### Commands
+
+```bash
+kubectl apply -f kubernetes/learning/nginx-replicaset.yaml
+
+kubectl get rs
+
+kubectl get pods
+
+kubectl scale rs nginx-rs --replicas=5
+
+kubectl scale rs nginx-rs --replicas=2
+
+kubectl describe rs nginx-rs
+
+kubectl delete rs nginx-rs
+```
