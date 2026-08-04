@@ -266,3 +266,33 @@ kubectl get namespaces
 kubectl get pods -A
 kubectl get services -A
 ```
+
+## Kubernetes - Pods
+
+### Concepts
+
+- Pod
+- Labels
+- Metadata
+- Container
+- kubectl
+
+### Commands
+
+```bash
+kubectl apply -f kubernetes/learning/nginx-pod.yaml
+
+kubectl get pods
+
+kubectl get pods -o wide
+
+kubectl describe pod nginx-demo
+
+kubectl logs nginx-demo
+
+kubectl exec -it nginx-demo -- sh
+
+kubectl port-forward pod/nginx-demo 8081:80
+
+kubectl delete pod nginx-demo
+```
