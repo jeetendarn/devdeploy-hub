@@ -3,7 +3,6 @@ package models
 import "time"
 
 type Project struct {
-
 	ID string `json:"id"`
 
 	Name string `json:"name"`
@@ -15,5 +14,4 @@ type Project struct {
 	Status string `json:"status"`
 
 	CreatedAt time.Time `json:"created_at"`
-
 }
