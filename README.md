@@ -327,6 +327,7 @@ kubectl delete rs nginx-rs
 ```
 
 
+
 ## Kubernetes - Deployments
 
 ### Concepts
